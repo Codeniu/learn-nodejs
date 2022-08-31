@@ -1,0 +1,21 @@
+{
+  "name": "learn-nodejs",
+  "version": "1.0.0",
+  "description": "跟随字节大佬，月影的小册《从前端到全栈》学习nodejs，记录学习过程中产生的代码。",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codeniu/learn-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Codeniu/learn-nodejs/issues"
+  },
+  "homepage": "https://github.com/Codeniu/learn-nodejs#readme"
+}
