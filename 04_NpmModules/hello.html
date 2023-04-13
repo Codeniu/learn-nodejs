@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: bisque;
+        padding: 80px;
+      }
+      .main {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-image: url('https://codeniu-picbed.oss-cn-hangzhou.aliyuncs.com/picbed/svg.svg');
+        background-repeat: no-repeat;
+      }
+
+      .item {
+        position: absolute;
+        width: 40px;
+        height: 80px;
+        offset-path: path(
+          'M435,286c-1.2,0-2.4,0-3.821-.005C192.813,285.359,0,221.582,0,143,0,64.023,194.756,0,435,0S870,64.023,870,143c0,.236,0,.473-.009.94C868.836,222.2,675.3,285.745,436.093,286'
+        );
+        offset-rotate: 0deg;
+        animation: move 18s infinite linear;
+      }
+
+      .item:nth-of-type(1) {
+        background: red;
+      }
+
+      .item:nth-of-type(2) {
+        background: blue;
+        animation-delay: 3s;
+      }
+
+      .item:nth-of-type(3) {
+        background: yellow;
+        animation-delay: 6s;
+      }
+
+      .item:nth-of-type(4) {
+        background: yellow;
+        animation-delay: 9s;
+      }
+
+      .item:nth-of-type(5) {
+        background: yellow;
+        animation-delay: 12s;
+      }
+
+      .item:nth-of-type(6) {
+        background: yellow;
+        animation-delay: 15s;
+      }
+
+      @keyframes move {
+        0%,
+        11.13% {
+          offset-distance: 0%;
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        16.69%,
+        27.82% {
+          offset-distance: 20%;
+          transform: scale(0.8);
+          opacity: 0.75;
+        }
+
+        33.38%,
+        44.5% {
+          offset-distance: 40%;
+          transform: scale(0.6);
+          opacity: 0.5;
+        }
+
+        50.06%,
+        61.19% {
+          offset-distance: 50%;
+          transform: scale(0.4);
+          opacity: 0.25;
+        }
+
+        66.75%,
+        77.88% {
+          offset-distance: 60%;
+          transform: scale(0.6);
+          opacity: 0.5;
+        }
+
+        83.44%,
+        94.57% {
+          offset-distance: 80%;
+          transform: scale(0.8);
+          opacity: 0.75;
+        }
+
+        100% {
+          offset-distance: 100%;
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>
