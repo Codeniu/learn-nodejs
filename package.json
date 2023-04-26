@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Codeniu/learn-nodejs#readme",
   "dependencies": {
-    "formidable": "^2.1.1"
+    "formidable": "^2.1.1",
+    "mime": "^3.0.0",
+    "mysql": "^2.18.1"
   }
 }
