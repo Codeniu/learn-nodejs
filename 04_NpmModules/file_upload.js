@@ -2,13 +2,15 @@ var http = require('http')
 var formidable = require('formidable')
 var fs = require('fs')
 
+const url = import.meta.url // 获取当前脚本文件的url
+
 http
   .createServer(function (req, res) {
     if (req.url == '/fileupload') {
       var form = new formidable.IncomingForm()
       form.parse(req, function (err, fields, files) {
         var oldpath = files.filetoupload.filepath
-        var newpath = 'D:/' + files.filetoupload.originalFilename
+        var newpath = url
         fs.rename(oldpath, newpath, function (err) {
           if (err) throw err
           res.write('File uploaded and moved!')
