@@ -47,3 +47,9 @@ console.log(url);
 ```
 
 > 需要注意的是，__filename 和 import.meta.url 的行为有所不同，因为它们用于不同的模块系统。__filename 是 Node.js 中的一个全局变量，用于获取当前模块的文件名，而 import.meta.url 是 ECMAScript 模块中的一个属性，用于获取当前模块的 URL。
+
+## 09_Todolist
+
+### SQLite 简介
+
+SQLite 是一个跨平台轻量级嵌入式的单文件数据库

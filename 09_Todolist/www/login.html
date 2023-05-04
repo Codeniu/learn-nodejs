@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <style>
+    form div {
+      display: flex;
+      margin: 10px;
+    }
+    form span {
+      width: 80px;
+    }
+    form input {
+      flex-grow: 1;
+      font-size: 1.5rem;
+    }
+    form input[type=submit] {
+      border: solid 1px #aaa;
+      border-radius: 12px;
+      background: white;
+      margin-top: 20px;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/login" method="POST">
+    <div><span>用户名：</span><input type="text" name="name" value="njx" required></div>
+    <div><span>密  码：</span><input type="password" name="passwd" value="123456" required></div>
+    <div><input type="submit" value="提交"></div>
+  </form>
+</body>
+</html>

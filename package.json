@@ -1,10 +1,10 @@
 {
   "name": "learn-nodejs",
   "version": "1.0.0",
-  "description": "跟随字节大佬，月影的小册《从前端到全栈》学习nodejs，记录学习过程中产生的代码。",
+  "description": "学习笔记",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ../09_Todolist/server"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,9 @@
     "formidable": "^2.1.1",
     "handlebars": "^4.7.7",
     "mime": "^3.0.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.6",
+    "zlib": "^1.0.5"
   }
 }
