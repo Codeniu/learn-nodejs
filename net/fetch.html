@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="handleClick()">onClick</button>
+
+    <script>
+      function handleClick() {
+        console.log(111)
+        const url = ''
+
+        const formData = new FormData()
+        formData.append('j_user', 'dujiacheng')
+        formData.append('j_password', 'dujc@2022')
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          body: formData,
+        })
+          .then(response => {
+            // 在这里处理响应
+            console.log('response: ', response)
+          })
+          .catch(error => {
+            // 在这里处理错误
+            console.log('error: ', error)
+          })
+      }
+    </script>
+  </body>
+</html>

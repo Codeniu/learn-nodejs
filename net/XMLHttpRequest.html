@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="handleClick()">onClick</button>
+
+    <script>
+      function handleClick() {
+        console.log(111)
+        const url = ''
+
+        const formData = new FormData()
+        formData.append('j_user', 'dujiacheng')
+        formData.append('j_password', 'dujc@2022')
+
+        var xhr = new XMLHttpRequest()
+
+        xhr.open('POST', url, true)
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            console.log(xhr.responseText)
+          } else {
+            console.log('请求。状态码为 ' + xhr.status)
+          }
+        }
+        xhr.send(formData)
+      }
+    </script>
+  </body>
+</html>
