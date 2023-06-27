@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WenSocket</title>
+    <style></style>
+  </head>
+
+  <body>
+    <input type="text" placeholder="请输入内容" />
+    <button>提交</button>
+
+    <script>
+      const input = document.querySelector('input')
+      const button = document.querySelector('button')
+      const div = document.querySelector('div')
+      const socket = new WebSocket('ws://localhost:3000')
+
+      const TYPE_ENTER = 0
+      const TYPE_LEAVE = 1
+      const TYPE_MSG = 2
+
+      socket.addEventListener('open', () => {
+        div.innerText = '欢迎来到聊天室'
+      })
+
+      button.addEventListener('click', () => {
+        socket.send(input.value)
+        input.value = ''
+      })
+
+      socket.addEventListener('message', e => {
+        const data = JSON.parse(e.data)
+
+        const dv = document.createElement('div')
+        dv.innerText = data.msg + '-----' + data.time
+        if (data.type === TYPE_ENTER) {
+          dv.style.color = '#28dab4'
+        } else if (data.type === TYPE_LEAVE) {
+          dv.style.color = '#ff0707'
+        } else if (data.type === TYPE_MSG) {
+          dv.style.color = '#000000'
+        }
+        div.appendChild(dv)
+      })
+    </script>
+  </body>
+</html>
