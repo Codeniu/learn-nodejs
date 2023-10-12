@@ -5,6 +5,13 @@
       "name": "JavaScript Debug Terminal",
       "request": "launch",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "node-terminal",
+      "name": "Run Script: start",
+      "request": "launch",
+      "command": "pnpm run start",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

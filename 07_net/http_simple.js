@@ -1,8 +1,7 @@
 const http = require('http')
-const url = require('url')
 
 const server = http.createServer((req, res) => {
-  const { pathname } = url.parse(`http://${req.headers.host}${req.url}`)
+  const { pathname } = new URL(`http://${req.headers.host}${req.url}`)
   if (pathname === '/') {
     res.writeHead(200, { 'Content-Type': 'text/html' })
     res.end('<h1>Hello world</h1>')

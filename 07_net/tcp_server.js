@@ -1,4 +1,3 @@
-const { error } = require('console')
 const net = require('net')
 
 // HTTP 响应报文的基础格式
