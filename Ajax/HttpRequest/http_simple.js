@@ -26,6 +26,34 @@ const server = http.createServer((req, res) => {
     setInterval(() => {
       res.write('event:sendtime\ndata:服务器时间: ' + new Date() + '\n\n')
     }, 1000)
+  } else if (pathname === '/about') {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Access-Control-Allow-Origin': req.headers.origin,
+      Connection: 'keep-alive',
+      'Content-Encoding': 'utf-8',
+      'Access-Control-Allow-Credentials': 'true',
+    })
+
+    const str = `Hello,我是codeniu
+    下面是关于 EventSource 的介绍：\n
+
+    EventSource 是一个web接口，用于服务端向客户端发送消息。\n\n
+
+    客户端通过 new EventSource(url) 接口与服务端建立一个持久化的连接, 服务器以 text/event-stream 格式发送事件，此连接会一直保持开启直到通过调用 EventSource.close() 关闭。
+    `
+    const strArr = str.split('')
+
+    // res.write('data:event source建立连接\n\n')
+
+    const interval = setInterval(() => {
+      if (strArr.length > 0) {
+        res.write('event:about\ndata:' + strArr.shift() + '\n\n')
+      } else {
+        clearInterval(interval)
+        res.end()
+      }
+    }, 50)
   } else {
     res.writeHead(404, { 'Content-Type': 'text/html' })
     res.end('<h1>Not Found</h1>')

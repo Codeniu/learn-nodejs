@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSource</title>
+    <style>
+      p {
+        width: 600px;
+        height: 400px;
+        padding: 20px;
+        overflow: auto;
+        border: 1px solid #3d3d3d;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="sendConnection" type="button">Connection EventSource</button>
+    <button id="closeConnection" type="button">closeConnection</button>
+
+    <p id="pre"></p>
+    <script>
+      let evtSource
+
+      const onLoad = () => {
+        evtSource = new EventSource('http://127.0.0.1:8082/about', {
+          withCredentials: true,
+        })
+
+        function attchMessageToBody(str) {
+          const newElement = document.createElement('pre')
+
+          const preEl = document.getElementById('pre')
+          preEl.innerHTML += str
+        }
+
+        // 事件名称为 about
+        evtSource.addEventListener('about', function (e) {
+          attchMessageToBody(e.data)
+        })
+
+        // 失败时处理
+        evtSource.addEventListener('error', err => {
+          console.error('EventSource failed:', err)
+        })
+
+        // 处理所有事件
+        evtSource.onmessage = function (e) {
+          console.log(e.data)
+        }
+      }
+
+      document
+        .getElementById('sendConnection')
+        .addEventListener('click', () => {
+          onLoad()
+        })
+
+      document
+        .getElementById('closeConnection')
+        .addEventListener('click', () => {
+          if (evtSource) {
+            console.log('Connection closed')
+            evtSource.close()
+          }
+        })
+    </script>
+  </body>
+</html>

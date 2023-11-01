@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HttpRequest</title>
+  </head>
+  <body>
+    <button id="sendAjax" type="button">Send Ajax</button>
+    <script>
+      const createHttpRequest = () => {
+        const httpRequest = new XMLHttpRequest()
+
+        httpRequest.open('GET', 'http://127.0.0.1:8080', true)
+        httpRequest.send()
+
+        httpRequest.onreadystatechange = () => {
+          if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+              console.log(httpRequest.readyState)
+              console.log(httpRequest.status)
+              const para = document.createElement('div')
+              para.innerHTML = httpRequest.responseText
+              document.body.appendChild(para)
+            }
+          }
+        }
+      }
+
+      document.getElementById('sendAjax').addEventListener('click', () => {
+        createHttpRequest()
+      })
+    </script>
+  </body>
+</html>
